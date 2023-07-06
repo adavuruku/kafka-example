@@ -15,6 +15,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 //https://stackoverflow.com/questions/48448079/json-parse-error-can-not-construct-instance-of-io-starter-topic-topic
 // https://medium.com/@houssemmedine.drissi/class-vs-record-difference-between-class-and-record-in-java-75d7ea6da145#:~:text=Records%20are%20immutable%20data%20classes,immutable%2C%20while%20classes%20are%20not.
 //https://www.conduktor.io/kafka/how-to-start-kafka-using-docker/
+// watch tom https://www.youtube.com/watch?v=rjDUpxtUPAE
 
 @SpringBootApplication
 public class KafkaExampleApplication {

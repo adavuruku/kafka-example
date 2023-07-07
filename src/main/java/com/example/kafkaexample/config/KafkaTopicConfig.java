@@ -14,4 +14,15 @@ public class KafkaTopicConfig {
                 .build();
     }
 
+    @Bean
+    public NewTopic multitype(){
+        return TopicBuilder.name("multitype")
+                .build();
+    }
+
+    @Bean
+    public NewTopic top1(){
+        return TopicBuilder.name("top1")
+                .build();
+    }
 }

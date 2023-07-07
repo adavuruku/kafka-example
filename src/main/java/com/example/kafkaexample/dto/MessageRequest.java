@@ -1,4 +1,4 @@
-package com.example.kafkaexample;
+package com.example.kafkaexample.dto;
 
 public class MessageRequest {
     String message;

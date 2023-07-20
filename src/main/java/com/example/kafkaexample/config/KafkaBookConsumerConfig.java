@@ -9,18 +9,16 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-@EnableKafka
 @Configuration
 public class KafkaBookConsumerConfig {
 
     @Bean
-    public ConsumerFactory<String, Book> consumerFactory()
+    public ConsumerFactory<String, Book> consumerFactoryTwo()
     {
 
         // Creating a map of string-object type
@@ -38,6 +36,9 @@ public class KafkaBookConsumerConfig {
                 ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
                 JsonDeserializer.class);
 
+        config.put(
+                JsonDeserializer.TRUSTED_PACKAGES,"*");
+
         // Returning message in JSON format
         return new DefaultKafkaConsumerFactory<>(
                 config, new StringDeserializer(),
@@ -53,7 +54,7 @@ public class KafkaBookConsumerConfig {
         ConcurrentKafkaListenerContainerFactory<
                 String, Book> factory
                 = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
+        factory.setConsumerFactory(consumerFactoryTwo());
         return factory;
     }
 }

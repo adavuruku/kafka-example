@@ -26,4 +26,10 @@ public class KafkaListeners {
     void listenerBook(@Payload Book book){
         System.out.println("Listener Received: " + book.getBookName() + " :)");
     }
+
+
+    @KafkaListener(id = "staticAccountId", topics = "static_account_produce_topic",containerFactory="staticAccountListener")
+    void listenerConsumer(@Payload String payload){
+        System.out.println("Listener Received:::: " + payload + " :)");
+    }
 }
